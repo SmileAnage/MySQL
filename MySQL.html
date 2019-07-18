@@ -1,0 +1,1228 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   body,table tr{background-color:#fff}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}pre code,table,table tr{padding:0}hr,pre code{background:0 0}body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;padding:10px 15px}strong,table tr th{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table tr{border-top:1px solid #ccc;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}blockquote{padding:0 15px;border-left:4px solid #ccc}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;white-space:pre;border:none}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <h1 id="mysql">
+   MySQL数据库
+  </h1>
+  <hr/>
+  <div class="toc">
+   <ul>
+    <li>
+     <a href="#mysql">
+      MySQL数据库
+     </a>
+     <ul>
+      <li>
+       <a href="#_1">
+        数据库概述
+       </a>
+       <ul>
+        <li>
+         <a href="#_2">
+          数据存储阶段
+         </a>
+        </li>
+        <li>
+         <a href="#_3">
+          数据库应用
+         </a>
+        </li>
+        <li>
+         <a href="#_4">
+          基础概念
+         </a>
+        </li>
+        <li>
+         <a href="#_5">
+          数据库分类和常见数据库
+         </a>
+        </li>
+        <li>
+         <a href="#mysql_1">
+          认识关系型数据库和MySQL
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="#sql">
+        SQL语句
+       </a>
+      </li>
+      <li>
+       <a href="#mysql_2">
+        MySQL 数据库操作
+       </a>
+       <ul>
+        <li>
+         <a href="#_6">
+          数据库操作
+         </a>
+        </li>
+        <li>
+         <a href="#_7">
+          数据表的管理
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="#_8">
+        数据基本操作
+       </a>
+       <ul>
+        <li>
+         <a href="#insert">
+          插入(insert)
+         </a>
+        </li>
+        <li>
+         <a href="#select">
+          查询(select)
+         </a>
+        </li>
+        <li>
+         <a href="#where">
+          where子句
+         </a>
+         <ul>
+          <li>
+           <a href="#_9">
+            算数运算符
+           </a>
+          </li>
+          <li>
+           <a href="#_10">
+            比较运算符
+           </a>
+          </li>
+          <li>
+           <a href="#_11">
+            逻辑运算符
+           </a>
+          </li>
+          <li>
+           <a href="#_12">
+            位运算符
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#update">
+          更新表记录(update)
+         </a>
+        </li>
+        <li>
+         <a href="#delete">
+          删除表记录（delete）
+         </a>
+        </li>
+        <li>
+         <a href="#alter">
+          表字段的操作(alter)
+         </a>
+        </li>
+        <li>
+         <a href="#_13">
+          时间类型数据
+         </a>
+         <ul>
+          <li>
+           <a href="#_14">
+            时间格式
+           </a>
+          </li>
+          <li>
+           <a href="#_15">
+            日期时间函数
+           </a>
+          </li>
+          <li>
+           <a href="#_16">
+            时间操作
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#_17">
+          高级查询语句
+         </a>
+         <ul>
+          <li>
+           <a href="#_18">
+            模糊查询和正则查询
+           </a>
+          </li>
+          <li>
+           <a href="#_19">
+            排序
+           </a>
+          </li>
+          <li>
+           <a href="#_20">
+            分页
+           </a>
+          </li>
+          <li>
+           <a href="#_21">
+            联合查询
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#_22">
+          数据备份
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li>
+       <a href="#pythonmysql">
+        Python操作MySQL数据库
+       </a>
+       <ul>
+        <li>
+         <a href="#pymysql">
+          pymysql安装
+         </a>
+        </li>
+        <li>
+         <a href="#pymysql_1">
+          pymysql使用流程
+         </a>
+         <ul>
+          <li>
+           <a href="#_23">
+            常用函数
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <h2 id="_1">
+   数据库概述
+  </h2>
+  <h3 id="_2">
+   数据存储阶段
+  </h3>
+  <p>
+   【1】 人工管理阶段
+  </p>
+  <p>
+   缺点 ：  数据无法共享,不能单独保持,数据存储量有限
+  </p>
+  <p>
+   【2】 文件管理阶段 （.txt  .doc  .xls）
+  </p>
+  <p>
+   优点 ： 数据可以长期保存,可以存储大量的数据,使用简单
+  </p>
+  <p>
+   缺点 ：  数据一致性差,数据查找修改不方便,数据冗余度可能比较大
+  </p>
+  <p>
+   【3】数据库管理阶段
+  </p>
+  <p>
+   优点 ： 数据组织结构化降低了冗余度,提高了增删改查的效率,容易扩展,方便程序调用，做自动化处理
+  </p>
+  <p>
+   缺点 ：需要使用sql 或者 其他特定的语句，相对比较复杂
+  </p>
+  <h3 id="_3">
+   数据库应用
+  </h3>
+  <blockquote>
+   <p>
+    融机构、游戏网站、购物网站、论坛网站 … …
+   </p>
+  </blockquote>
+  <p>
+   <img alt="" src="img/数据库系统.png"/>
+  </p>
+  <h3 id="_4">
+   基础概念
+  </h3>
+  <blockquote>
+   <p>
+    数据 ： 能够输入到计算机中并被识别处理的信息集合
+   </p>
+   <p>
+    数据结构 ：研究一个数据集合中数据之间关系的
+   </p>
+   <p>
+    数据库 ： 按照数据结构，存储管理数据的仓库。数据库是在数据库管理系统管理和控制下，在一定介质上的数据集合。
+   </p>
+   <p>
+    数据库管理系统 ：管理数据库的软件，用于建立和维护数据库
+   </p>
+   <p>
+    数据库系统 ： 由数据库和数据库管理系统，开发工具等组成的集合
+   </p>
+  </blockquote>
+  <h3 id="_5">
+   数据库分类和常见数据库
+  </h3>
+  <ul>
+   <li>
+    关系型数据库和非关系型数据库
+   </li>
+  </ul>
+  <blockquote>
+   <p>
+    关系型： 采用关系模型（二维表）来组织数据结构的数据库
+   </p>
+   <p>
+    非关系型： 不采用关系模型组织数据结构的数据库
+   </p>
+  </blockquote>
+  <ul>
+   <li>
+    开源数据库和非开源数据库
+   </li>
+  </ul>
+  <blockquote>
+   <p>
+    开源：MySQL、SQLite、MongoDB
+   </p>
+   <p>
+    非开源：Oracle、DB2、SQL_Server
+   </p>
+  </blockquote>
+  <ul>
+   <li>
+    常见的关系型数据库
+   </li>
+  </ul>
+  <blockquote>
+   <p>
+    MySQL、Oracle、SQL_Server、DB2 SQLite
+   </p>
+  </blockquote>
+  <h3 id="mysql_1">
+   认识关系型数据库和MySQL
+  </h3>
+  <ol>
+   <li>
+    数据库结构 （图库结构）
+   </li>
+  </ol>
+  <blockquote>
+   <p>
+    数据元素 –&gt; 记录 –&gt;数据表 –&gt; 数据库
+   </p>
+  </blockquote>
+  <p>
+   <img alt="" src="img/库结构.png"/>
+  </p>
+  <ol>
+   <li>
+    数据库概念解析
+   </li>
+  </ol>
+  <blockquote>
+   <p>
+    数据表 ： 存放数据的表格
+   </p>
+   <p>
+    字段： 每个列，用来表示该列数据的含义
+   </p>
+   <p>
+    记录： 每个行，表示一组完整的数据
+   </p>
+  </blockquote>
+  <p>
+   <img alt="" src="img/表结构.png"/>
+  </p>
+  <ol>
+   <li>
+    <p>
+     MySQL特点
+    </p>
+   </li>
+   <li>
+    <p>
+     是开源数据库，使用C和C++编写
+    </p>
+   </li>
+   <li>
+    能够工作在众多不同的平台上
+   </li>
+   <li>
+    提供了用于C、C++、Python、Java、Perl、PHP、Ruby众多语言的API
+   </li>
+   <li>
+    存储结构优良，运行速度快
+   </li>
+   <li>
+    <p>
+     功能全面丰富
+    </p>
+   </li>
+   <li>
+    <p>
+     MySQL安装
+    </p>
+   </li>
+  </ol>
+  <blockquote>
+   <p>
+    Ubuntu安装MySQL服务
+   </p>
+   <blockquote>
+    <p>
+     安装服务端: sudo apt-get install mysql-server
+     <br/>
+     安装客户端: sudo apt-get install mysql-client
+    </p>
+    <blockquote>
+     <p>
+      配置文件：/etc/mysql
+      <br/>
+      命令集： /usr/bin
+      <br/>
+      数据库存储目录 ：/var/lib/mysql
+     </p>
+    </blockquote>
+   </blockquote>
+   <p>
+    Windows安装MySQL
+   </p>
+   <blockquote>
+    <p>
+     下载MySQL安装包(windows)
+     <a href="https://dev.mysql.com/downloads/mysql/">
+      https://dev.mysql.com/downloads/mysql/
+     </a>
+     <br/>
+     mysql-installer
+     <strong>
+      <em>
+       5.7.
+      </em>
+     </strong>
+     .msi
+     <br/>
+     安装教程去安装
+    </p>
+   </blockquote>
+  </blockquote>
+  <ol>
+   <li>
+    启动和连接MySQL服务
+   </li>
+  </ol>
+  <blockquote>
+   <p>
+    服务端启动
+   </p>
+   <blockquote>
+    <p>
+     查看MySQL状态: sudo /etc/init.d/mysql status
+     <br/>
+     启动服务：sudo /etc/init.d/mysql start | stop | restart
+    </p>
+   </blockquote>
+   <p>
+    客户端连接
+   </p>
+   <blockquote>
+    <p>
+     命令格式
+    </p>
+    <blockquote>
+     <p>
+      mysql -h主机地址 -u用户名 -p密码
+      <br/>
+      mysql -hlocalhost -uroot -p123456
+      <br/>
+      本地连接可省略 -h 选项: mysql -uroot -p123456
+     </p>
+    </blockquote>
+   </blockquote>
+   <p>
+    关闭连接
+   </p>
+   <blockquote>
+    <p>
+     ctrl-D
+     <br/>
+     exit
+    </p>
+   </blockquote>
+  </blockquote>
+  <h2 id="sql">
+   SQL语句
+  </h2>
+  <blockquote>
+   <p>
+    什么是SQL
+   </p>
+   <blockquote>
+    <p>
+     结构化查询语言(Structured Query Language)，一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。
+    </p>
+   </blockquote>
+   <p>
+    SQL语句使用特点
+    <br/>
+    <em>
+     SQL语言基本上独立于数据库本身
+     <br/>
+    </em>
+    各种不同的数据库对SQL语言的支持与标准存在着细微的不同
+    <br/>
+    <em>
+     每条命令必须以 ; 结尾
+     <br/>
+    </em>
+    SQL命令关键字不区分字母大小写
+   </p>
+  </blockquote>
+  <h2 id="mysql_2">
+   MySQL 数据库操作
+  </h2>
+  <h3 id="_6">
+   数据库操作
+  </h3>
+  <p>
+   1.查看已有库
+  </p>
+  <blockquote>
+   <p>
+    show databases;
+   </p>
+  </blockquote>
+  <p>
+   2.创建库(指定字符集)
+  </p>
+  <blockquote>
+   <p>
+    create database 库名 [character set utf8];
+   </p>
+  </blockquote>
+  <pre><code class="sql">e.g. 创建stu数据库，编码为utf8
+create database stu character set utf8;
+create database stu charset=utf8;
+</code></pre>
+  <p>
+   3.查看创建库的语句(字符集)
+  </p>
+  <blockquote>
+   <p>
+    show create database 库名;
+   </p>
+  </blockquote>
+  <pre><code class="sql">e.g. 查看stu创建方法
+show create database stu;
+</code></pre>
+  <p>
+   4.查看当前所在库
+  </p>
+  <blockquote>
+   <p>
+    select database();
+   </p>
+  </blockquote>
+  <p>
+   5.切换库
+  </p>
+  <blockquote>
+   <p>
+    use 库名;
+   </p>
+  </blockquote>
+  <pre><code class="sql">e.g. 使用stu数据库
+use stu;
+</code></pre>
+  <p>
+   6.删除库
+  </p>
+  <blockquote>
+   <p>
+    drop database 库名;
+   </p>
+  </blockquote>
+  <pre><code class="sql">e.g. 删除test数据库
+drop database test;
+</code></pre>
+  <p>
+   7.库名的命名规则
+  </p>
+  <blockquote>
+   <ul>
+    <li>
+     数字、字母、下划线,但不能使用纯数字
+    </li>
+    <li>
+     库名区分字母大小写
+    </li>
+    <li>
+     不能使用特殊字符和mysql关键字
+    </li>
+   </ul>
+  </blockquote>
+  <h3 id="_7">
+   数据表的管理
+  </h3>
+  <ol>
+   <li>
+    <p>
+     表结构设计初步
+    </p>
+    <p>
+     【1】 分析存储内容
+     <br/>
+     【2】 确定字段构成
+     <br/>
+     【3】 设计字段类型
+    </p>
+   </li>
+   <li>
+    <p>
+     数据类型支持
+    </p>
+   </li>
+  </ol>
+  <blockquote>
+   <p>
+    数字类型：
+   </p>
+   <blockquote>
+    <p>
+     整数类型（精确值） - INTEGER，INT，SMALLINT，TINYINT，MEDIUMINT，BIGINT
+     <br/>
+     定点类型（精确值） - DECIMAL
+     <br/>
+     浮点类型（近似值） - FLOAT，DOUBLE
+     <br/>
+     比特值类型 - BIT
+    </p>
+   </blockquote>
+  </blockquote>
+  <p>
+   <img alt="" src="img/整型.png"/>
+  </p>
+  <blockquote>
+   <p>
+    对于精度比较高的东西，比如money，用decimal类型提高精度减少误差。列的声明语法是DECIMAL(M,D)。
+   </p>
+   <blockquote>
+    <p>
+     M是数字的最大位数（精度）。其范围为1～65，M 的默认值是10。
+     <br/>
+     D是小数点右侧数字的数目（标度）。其范围是0～30，但不得超过M。
+     <br/>
+     比如 DECIMAL(6,2)最多存6位数字，小数点后占2位,取值范围-9999.99到9999.99。
+    </p>
+   </blockquote>
+   <p>
+    比特值类型指0，1值表达2种情况，如真，假
+   </p>
+  </blockquote>
+  <hr/>
+  <blockquote>
+   <p>
+    字符串类型：
+   </p>
+   <blockquote>
+    <p>
+     CHAR和VARCHAR类型
+     <br/>
+     BINARY和VARBINARY类型
+     <br/>
+     BLOB和TEXT类型
+     <br/>
+     ENUM类型和SET类型
+    </p>
+   </blockquote>
+  </blockquote>
+  <p>
+   <img alt="" src="img/字符串.png"/>
+  </p>
+  <ul>
+   <li>
+    <p>
+     char 和 varchar
+    </p>
+    <blockquote>
+     <p>
+      char：定长，效率高，一般用于固定长度的表单提交数据存储，默认1字符
+      <br/>
+      varchar：不定长，效率偏低
+     </p>
+    </blockquote>
+   </li>
+   <li>
+    <p>
+     text 和blob
+    </p>
+    <blockquote>
+     <p>
+      text用来存储非二进制文本
+      <br/>
+      blob用来存储二进制字节串
+     </p>
+    </blockquote>
+   </li>
+   <li>
+    <p>
+     enum 和 set
+    </p>
+    <blockquote>
+     <p>
+      enum用来存储给出的一个值
+      <br/>
+      set用来存储给出的值中一个或多个值
+     </p>
+    </blockquote>
+   </li>
+  </ul>
+  <hr/>
+  <ol>
+   <li>
+    表的基本操作
+   </li>
+  </ol>
+  <blockquote>
+   <p>
+    创建表(指定字符集)
+   </p>
+   <blockquote>
+    <p>
+     create table 表名(
+     <br/>
+     字段名 数据类型,
+     <br/>
+     字段名 数据类型,
+     <br/>
+     …
+     <br/>
+     字段名 数据类型
+     <br/>
+     );
+    </p>
+    <ul>
+     <li>
+      如果你想设置数字为无符号则加上 unsigned
+     </li>
+     <li>
+      如果你不想字段为 NULL 可以设置字段的属性为 NOT NULL， 在操作数据库时如果输入该字段的数据为NULL ，就会报错。
+     </li>
+     <li>
+      DEFAULT 表示设置一个字段的默认值
+     </li>
+     <li>
+      AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。
+     </li>
+     <li>
+      PRIMARY KEY关键字用于定义列为主键。主键的值不能重复。
+     </li>
+    </ul>
+   </blockquote>
+  </blockquote>
+  <pre><code class="sql">e.g.  创建班级表
+create table class_1 (id int primary key auto_increment,name varchar(32) not null,age int not null,sex enum('w','m'),score float default 0.0);
+
+e.g. 创建兴趣班表
+create table interest (id int primary key auto_increment,name varchar(32) not null,hobby set('sing','dance','draw'),course char not null,price decimal(6,2),comment text);
+</code></pre>
+  <blockquote>
+   <p>
+    查看数据表
+   </p>
+   <blockquote>
+    <p>
+     show tables；
+    </p>
+   </blockquote>
+   <p>
+    查看已有表的字符集
+   </p>
+   <blockquote>
+    <p>
+     show create table 表名;
+    </p>
+   </blockquote>
+   <p>
+    查看表结构
+   </p>
+   <blockquote>
+    <p>
+     desc 表名;
+    </p>
+   </blockquote>
+   <p>
+    删除表
+   </p>
+   <blockquote>
+    <p>
+     drop table 表名;
+    </p>
+   </blockquote>
+  </blockquote>
+  <h2 id="_8">
+   数据基本操作
+  </h2>
+  <h3 id="insert">
+   插入(insert)
+  </h3>
+  <pre><code class="SQL">insert into 表名 values(值1),(值2),...;
+insert into 表名(字段1,...) values(值1),...;
+</code></pre>
+  <pre><code class="sql">e.g. 
+insert into class_1 values (2,'Baron',10,'m',91),(3,'Jame',9,'m',90);
+</code></pre>
+  <h3 id="select">
+   查询(select)
+  </h3>
+  <pre><code class="SQL">select * from 表名 [where 条件];
+select 字段1,字段名2 from 表名 [where 条件];
+</code></pre>
+  <pre><code class="sql">e.g. 
+select * from class_1;
+
+select name,age from class_1;
+</code></pre>
+  <h3 id="where">
+   where子句
+  </h3>
+  <p>
+   where子句在sql语句中扮演了重要角色，主要通过一定的运算条件进行数据的筛选
+  </p>
+  <p>
+   MySQL 主要有以下几种运算符：
+  </p>
+  <blockquote>
+   <p>
+    算术运算符
+    <br/>
+    比较运算符
+    <br/>
+    逻辑运算符
+    <br/>
+    位运算符
+   </p>
+  </blockquote>
+  <h4 id="_9">
+   算数运算符
+  </h4>
+  <p>
+   <img alt="" src="img/算数.png"/>
+  </p>
+  <pre><code class="sql">e.g.
+select * from class_1 where age % 2 = 0;
+</code></pre>
+  <h4 id="_10">
+   比较运算符
+  </h4>
+  <p>
+   <img alt="" src="img/比较.png"/>
+  </p>
+  <pre><code class="sql">e.g.
+select * from class_1 where age &gt; 8;
+select * from class_1 where between 8 and 10;
+select * from class_1 where age in (8,9);
+</code></pre>
+  <h4 id="_11">
+   逻辑运算符
+  </h4>
+  <p>
+   <img alt="" src="img/逻辑.png"/>
+  </p>
+  <pre><code class="sql">e.g.
+select * from class_1 where sex='m' and age&gt;9;
+</code></pre>
+  <h4 id="_12">
+   位运算符
+  </h4>
+  <p>
+   <img alt="" src="img/位.png"/>
+  </p>
+  <p>
+   <img alt="" src="img/运算符.png"/>
+  </p>
+  <h3 id="update">
+   更新表记录(update)
+  </h3>
+  <pre><code class="SQL">update 表名 set 字段1=值1,字段2=值2,... where 条件;
+</code></pre>
+  <pre><code class="sql">e.g.
+update class_1 set age=11 where name='Abby';
+</code></pre>
+  <h3 id="delete">
+   删除表记录（delete）
+  </h3>
+  <pre><code class="SQL">delete from 表名 where 条件;
+
+注意:delete语句后如果不加where条件,所有记录全部清空
+</code></pre>
+  <pre><code class="sql">e.g.
+delete from class_1 where name='Abby';
+</code></pre>
+  <h3 id="alter">
+   表字段的操作(alter)
+  </h3>
+  <pre><code class="SQL">语法 ：alter table 表名 执行动作;
+
+* 添加字段(add)
+    alter table 表名 add 字段名 数据类型;
+    alter table 表名 add 字段名 数据类型 first;
+    alter table 表名 add 字段名 数据类型 after 字段名;
+* 删除字段(drop)
+    alter table 表名 drop 字段名;
+* 修改数据类型(modify)
+    alter table 表名 modify 字段名 新数据类型;
+* 修改字段名(change)
+    alter table 表名 change 旧字段名 新字段名 新数据类型;
+* 表重命名(rename)
+    alter table 表名 rename 新表名;
+</code></pre>
+  <pre><code class="sql">e.g. 
+alter table interest add date Date after course;
+</code></pre>
+  <h3 id="_13">
+   时间类型数据
+  </h3>
+  <blockquote>
+   <p>
+    时间和日期类型:
+   </p>
+   <blockquote>
+    <p>
+     DATE，DATETIME和TIMESTAMP类型
+     <br/>
+     TIME类型
+     <br/>
+     年份类型YEAR
+    </p>
+   </blockquote>
+  </blockquote>
+  <p>
+   <img alt="" src="img/时间.png"/>
+  </p>
+  <h4 id="_14">
+   时间格式
+  </h4>
+  <blockquote>
+   <p>
+    date ：”YYYY-MM-DD”
+    <br/>
+    time ：”HH:MM:SS”
+    <br/>
+    datetime ：”YYYY-MM-DD HH:MM:SS”
+    <br/>
+    timestamp ：”YYYY-MM-DD HH:MM:SS”
+    <br/>
+    注意
+    <br/>
+    1、datetime ：不给值默认返回NULL值
+    <br/>
+    2、timestamp ：不给值默认返回系统当前时间
+   </p>
+  </blockquote>
+  <h4 id="_15">
+   日期时间函数
+  </h4>
+  <ul>
+   <li>
+    now()  返回服务器当前时间
+   </li>
+   <li>
+    curdate() 返回当前日期
+   </li>
+   <li>
+    curtime() 返回当前时间
+   </li>
+   <li>
+    date(date) 返回指定时间的日期
+   </li>
+   <li>
+    time(date) 返回指定时间的时间
+   </li>
+  </ul>
+  <h4 id="_16">
+   时间操作
+  </h4>
+  <ul>
+   <li>
+    查找操作
+   </li>
+  </ul>
+  <pre><code class="sql">  select * from timelog where Date = "2018-07-02";
+  select * from timelog where Date&gt;="2018-07-01" and Date&lt;="2018-07-31";
+</code></pre>
+  <ul>
+   <li>
+    <p>
+     日期时间运算
+    </p>
+   </li>
+   <li>
+    <p>
+     语法格式
+    </p>
+    <p>
+     select * from 表名  where 字段名 运算符 (时间-interval 时间间隔单位);
+    </p>
+   </li>
+   <li>
+    <p>
+     时间间隔单位：  1 day | 2 hour | 1 minute | 2 year | 3 month
+    </p>
+   </li>
+  </ul>
+  <pre><code class="sql">  select * from timelog where shijian &gt; (now()-interval 1 day);
+</code></pre>
+  <h3 id="_17">
+   高级查询语句
+  </h3>
+  <h4 id="_18">
+   模糊查询和正则查询
+  </h4>
+  <p>
+   LIKE用于在where子句中进行模糊查询，SQL LIKE 子句中使用百分号 %来表示任意0个或多个字符，下划线_表示任意一个字符。
+  </p>
+  <p>
+   使用 LIKE 子句从数据表中读取数据的通用语法：
+  </p>
+  <pre><code class="sql">SELECT field1, field2,...fieldN 
+FROM table_name
+WHERE field1 LIKE condition1
+</code></pre>
+  <pre><code class="sql">e.g. 
+mysql&gt; select * from class_1 where name like 'A%';
+</code></pre>
+  <p>
+   mysql中对正则表达式的支持有限，只支持部分正则元字符
+  </p>
+  <pre><code class="sql">SELECT field1, field2,...fieldN 
+FROM table_name
+WHERE field1 REGEXP condition1
+</code></pre>
+  <pre><code class="sql">e.g. 
+select * from class_1 where name regexp 'B.+';
+</code></pre>
+  <h4 id="_19">
+   排序
+  </h4>
+  <p>
+   ORDER BY 子句来设定你想按哪个字段哪种方式来进行排序，再返回搜索结果。
+  </p>
+  <p>
+   使用 ORDER BY 子句将查询数据排序后再返回数据：
+  </p>
+  <pre><code class="sql">SELECT field1, field2,...fieldN from table_name1 where field1
+ORDER BY field1 [ASC [DESC]]
+</code></pre>
+  <p>
+   默认情况ASC表示升序，DESC表示降序
+  </p>
+  <pre><code class="sql">select * from class_1 where sex='m' order by age;
+</code></pre>
+  <h4 id="_20">
+   分页
+  </h4>
+  <p>
+   LIMIT 子句用于限制由 SELECT 语句返回的数据数量 或者 UPDATE,DELETE语句的操作数量
+  </p>
+  <p>
+   带有 LIMIT 子句的 SELECT 语句的基本语法如下：
+  </p>
+  <pre><code class="sql">SELECT column1, column2, columnN 
+FROM table_name
+WHERE field
+LIMIT [num]
+</code></pre>
+  <h4 id="_21">
+   联合查询
+  </h4>
+  <p>
+   UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。
+  </p>
+  <p>
+   UNION 操作符语法格式：
+  </p>
+  <pre><code class="sql">SELECT expression1, expression2, ... expression_n
+FROM tables
+[WHERE conditions]
+UNION [ALL | DISTINCT]
+SELECT expression1, expression2, ... expression_n
+FROM tables
+[WHERE conditions];
+</code></pre>
+  <blockquote>
+   <p>
+    expression1, expression2, … expression_n: 要检索的列。
+    <br/>
+    tables: 要检索的数据表。
+    <br/>
+    WHERE conditions: 可选， 检索条件。
+    <br/>
+    DISTINCT: 可选，删除结果集中重复的数据。默认情况下 UNION 操作符已经删除了重复数据，所以 DISTINCT 修饰符对结果没啥影响。
+    <br/>
+    ALL: 可选，返回所有结果集，包含重复数据。
+   </p>
+  </blockquote>
+  <pre><code class="sql">select * from class_1 where sex='m' UNION ALL select * from class_1 where age &gt; 9;
+</code></pre>
+  <h3 id="_22">
+   数据备份
+  </h3>
+  <ol>
+   <li>
+    <p>
+     备份命令格式
+    </p>
+    <blockquote>
+     <p>
+      mysqldump -u用户名 -p 源库名 &gt; ~/***.sql
+     </p>
+     <blockquote>
+      <p>
+       –all-databases  备份所有库
+       <br/>
+       库名             备份单个库
+       <br/>
+       -B 库1 库2 库3   备份多个库
+       <br/>
+       库名 表1 表2 表3 备份指定库的多张表
+      </p>
+     </blockquote>
+    </blockquote>
+   </li>
+   <li>
+    <p>
+     恢复命令格式
+    </p>
+    <blockquote>
+     <p>
+      mysql -uroot -p 目标库名 &lt; ***.sql
+      <br/>
+      从所有库备份中恢复某一个库(–one-database)
+     </p>
+     <blockquote>
+      <p>
+       mysql -uroot -p –one-database 目标库名 &lt; all.sql
+      </p>
+     </blockquote>
+    </blockquote>
+   </li>
+  </ol>
+  <h2 id="pythonmysql">
+   Python操作MySQL数据库
+  </h2>
+  <h3 id="pymysql">
+   pymysql安装
+  </h3>
+  <blockquote>
+   <p>
+    sudo pip3 install pymysql
+   </p>
+  </blockquote>
+  <h3 id="pymysql_1">
+   pymysql使用流程
+  </h3>
+  <ol>
+   <li>
+    建立数据库连接(db = pymysql.connect(…))
+   </li>
+   <li>
+    创建游标对象(c = db.cursor())
+   </li>
+   <li>
+    游标方法: c.execute(“insert ....”)
+   </li>
+   <li>
+    提交到数据库 : db.commit()
+   </li>
+   <li>
+    关闭游标对象 ：c.close()
+   </li>
+   <li>
+    断开数据库连接 ：db.close()
+   </li>
+  </ol>
+  <h4 id="_23">
+   常用函数
+  </h4>
+  <blockquote>
+   <p>
+    db = pymysql.connect(参数列表)
+   </p>
+   <blockquote>
+    <p>
+     host ：主机地址,本地 localhost
+     <br/>
+     port ：端口号,默认3306
+     <br/>
+     user ：用户名
+     <br/>
+     password ：密码
+     <br/>
+     database ：库
+     <br/>
+     charset ：编码方式,推荐使用 utf8
+    </p>
+   </blockquote>
+   <p>
+    数据库连接对象(db)的方法
+   </p>
+   <blockquote>
+    <p>
+     db.commit() 提交到数据库执行
+     <br/>
+     db.rollback() 回滚
+     <br/>
+     cur = db.cursor() 返回游标对象,用于执行具体SQL命令
+     <br/>
+     db.close() 关闭连接
+    </p>
+   </blockquote>
+   <p>
+    游标对象(cur)的方法
+   </p>
+   <blockquote>
+    <p>
+     cur.execute(sql命令,[列表]) 执行SQL命令
+     <br/>
+     cur.close() 关闭游标对象
+     <br/>
+     cur.fetchone() 获取查询结果集的第一条数据 (1,100001,”河北省”)
+     <br/>
+     cur.fetchmany(n) 获取n条 ((记录1),(记录2))
+     <br/>
+     cur.fetchall() 获取所有记录
+    </p>
+   </blockquote>
+  </blockquote>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>
