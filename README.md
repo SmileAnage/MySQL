@@ -1,22 +1,6 @@
 MySQL数据库
 ===
 
-[TOC]
-
-### MySQL安装
-1.安装服务端
->sudo apt-get install mysql-server
-
-2.安装客户端
->sudo apt-get install mysql-client
-
-3.启动服务端(启动 | 关闭 | 重启 | 状态)
->sudo /etc/init.d/mysql start | stop | restart | status
-
-4.客户端连接
->msyql -u [user] -p [passwd]
->e.g : mysql -u root -p 123456
-
 ### 数据库操作
 1.查看已有库
 >show databases;
