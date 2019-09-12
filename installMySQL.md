@@ -10,6 +10,15 @@ Centos、Ubuntu、Windows下安装MySQL
 * sudo apt-get install mysql-client
 * sudo /etc/inti.d/mysql start | stop (启动服务器|关闭服务器)
 * mysql -u root -p (输入密码，进入mysql)
+## 如果安装后，进不去mysql，只是因为mysql安装的时候root自动设置了随机密码
+* sudo mysql -u root -p  # 密码为空
+* 进去mysql后
+  + 修改密码,如果第一条失败时，在试第二条
+  + set password for 'root'@'localhost' = password('123456');
+  + update mysql.user set authentication_string=PASSWORD('123456'), plugin='mysql_native_password' where user='root';
+  + flush privileges;  # 保存配置
+* 退出重新进入`mysql -uroot -p123456`
+
 ## Windows下安装MySQL
 ### 一、前往官网下载ZIP包
 * 下载后解压放到需要指定的文件夹下(D:\MySQL\mysql-5.6.45-winx64)
