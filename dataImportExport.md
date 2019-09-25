@@ -10,7 +10,7 @@
 ```mysql
 	mysql -u root -p 需要恢复到的数据库名(没有的话需自己创建) > 存储位置及格式
 	\e.g.
-	mysql -u root -p smile > /usr/SA/smile.sql
+	mysql -u root -p smile < /usr/SA/smile.sql
 ```
 ## 数据库中表的导出
 ### 查看数据库存放路径
