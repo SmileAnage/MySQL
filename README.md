@@ -140,7 +140,7 @@ select [field1],[field2] from [table_user] [where 条件];
 >mysqldump -u root -p [备份的数据库名] > 存储位置/*.sql
 
 2.数据库恢复
->mysql -u root -p [需要恢复到的数据库名] > 存储位置/*.sql
+>mysql -u root -p [需要恢复到的数据库名] < 存储位置/*.sql
 
 
 
