@@ -147,9 +147,9 @@ select [field1],[field2] from [table_user] [where 条件];
 >mysqldump -u root -p [备份的数据库名] [备份的表名] > 存储位置/*.sql
 
 2.数据表导入
-> mysql -u root -p  # 进入数据库中
-> use [数据库名称]   # 选择数据库
-> source 存储位置/*.sql
+* mysql -u root -p  # 进入数据库中
+* use [数据库名称]   # 选择数据库
+* source 存储位置/*.sql
 
 
 
