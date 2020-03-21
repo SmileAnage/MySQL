@@ -142,6 +142,15 @@ select [field1],[field2] from [table_user] [where 条件];
 2.数据库恢复
 >mysql -u root -p [需要恢复到的数据库名] < 存储位置/*.sql
 
+### 数据库中表的导出与导入
+1.数据表导出
+>mysqldump -u root -p [备份的数据库名] [备份的表名] > 存储位置/*.sql
+
+2.数据表导入
+> mysql -u root -p  # 进入数据库中
+> use [数据库名称]   # 选择数据库
+> source 存储位置/*.sql
+
 
 
 
